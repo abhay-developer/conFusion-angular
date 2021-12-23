@@ -9,5 +9,6 @@ export const routes:Routes=[
     {path:'home', component:HomeComponent},
     {path:'menu',component:MenuComponent},
     {path:'contact-us',component:ContactComponent},
+    {path:'dishdetail/:id',component:DishDetailComponent},
     {path:'',redirectTo:'/home', pathMatch:'full'}
 ]
