@@ -21,7 +21,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { LeaderService } from './services/leader.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +44,13 @@ import { LoginComponent } from './login/login.component';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
-  providers: [DishService,PromotionService],
+  // entryComponents:[
+  //   LoginComponent
+  // ],
+  providers: [DishService,PromotionService,LeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
