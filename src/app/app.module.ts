@@ -10,6 +10,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list'
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { DishDetailComponent } from './dish-detail/dish-detail.component';
@@ -21,8 +25,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { LeaderService } from './services/leader.service';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +49,11 @@ import { LeaderService } from './services/leader.service';
     MatCardModule,
     MatButtonModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   // entryComponents:[
   //   LoginComponent
