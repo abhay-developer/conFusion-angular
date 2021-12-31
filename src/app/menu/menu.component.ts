@@ -20,6 +20,6 @@ export class MenuComponent implements OnInit {
   }
 
   getDishes():void{
-    this.dishService.getDishes().then(dished=>this.dishes=this.dishes);
+    this.dishService.getDishes().then(dishes=>this.dishes=dishes);
   }
 }
