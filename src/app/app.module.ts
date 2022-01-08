@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -31,6 +30,8 @@ import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
 import { LeaderService } from './services/leader.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { baseURL } from './shared/BaseURL';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,12 +63,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
   // entryComponents:[
   //   LoginComponent
   // ],
-  providers: [DishService,PromotionService,LeaderService],
+  providers: [DishService,PromotionService,LeaderService,{provide:'BaseURL', useValue:baseURL}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
