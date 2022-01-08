@@ -8,6 +8,7 @@ import { Dish } from '../shared/dish';
 })
 export class MenuComponent implements OnInit {
   dishes!:Dish[];
+  errMsg!:string;
   constructor(private dishService:DishService,@Inject('BaseURL') public BaseURL:string) { }
 
   ngOnInit(): void {
@@ -15,6 +16,7 @@ export class MenuComponent implements OnInit {
   }
 
   getDishes():void{
-    this.dishService.getDishes().subscribe(dishes=>this.dishes=dishes);
+    this.dishService.getDishes().subscribe({next:dishes=>this.dishes=dishes,
+      error:errMsg=>this.errMsg=errMsg});
   }
 }

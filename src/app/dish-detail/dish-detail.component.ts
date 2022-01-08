@@ -18,6 +18,8 @@ export class DishDetailComponent implements OnInit {
   next!:string;
   commentForm!:FormGroup;
   comment:Comment|any;
+  errMsg!:string;
+  dishCopy!:Dish;
   @ViewChild('fform') formDirective!: NgForm;
 
   formErrors:any = {
@@ -43,8 +45,8 @@ export class DishDetailComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.dishService.getDishIds().subscribe(ids=>this.dishIds=ids);
-    this.route.params.pipe(switchMap((params:Params)=>this.dishService.getDish(params['id']))).subscribe((dish)=>{this.dish=dish; this.setPrevNext(dish.id)} );
+    this.dishService.getDishIds().subscribe({next:ids=>this.dishIds=ids,error:errMsg=>this.errMsg=errMsg});
+    this.route.params.pipe(switchMap((params:Params)=>this.dishService.getDish(params['id']))).subscribe({next:(dish)=>{this.dish=dish;this.dishCopy=dish; this.setPrevNext(dish.id)},error:errMsg=>this.errMsg=errMsg});
   }
 
   setPrevNext(dishId:string){
@@ -97,7 +99,8 @@ export class DishDetailComponent implements OnInit {
   onSubmit(){
     this.comment = this.commentForm.value;
     this.comment.date = new Date().toISOString();
-    this.dish.comments.push(this.comment);
+    this.dishCopy.comments.push(this.comment);
+    this.dishService.putDish(this.dishCopy).subscribe({next:dish=>{this.dish=dish;this.dishCopy=dish},error:errMsg=>this.errMsg=errMsg})
     console.log(this.comment);
     this.comment = null;
     this.formDirective.resetForm();
