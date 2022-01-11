@@ -33,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { baseURL } from './shared/BaseURL';
 import { ProcessHttpMsgService } from './services/process-http-msg.service';
+import { HighlightDirective } from './directives/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { ProcessHttpMsgService } from './services/process-http-msg.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
