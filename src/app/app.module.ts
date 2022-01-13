@@ -29,6 +29,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
 import { LeaderService } from './services/leader.service';
+import { FeedbackService } from './services/feedback.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { baseURL } from './shared/BaseURL';
@@ -76,7 +77,9 @@ import { HighlightDirective } from './directives/highlight.directive';
     PromotionService,
     LeaderService,
     {provide:'BaseURL', useValue:baseURL},
-  ProcessHttpMsgService],
+    ProcessHttpMsgService,
+    FeedbackService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
