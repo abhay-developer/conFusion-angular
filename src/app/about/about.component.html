@@ -60,7 +60,7 @@
       <h2>Error</h2>
       <h4>{{errMsg}}</h4>
     </div>
-    <mat-list *ngIf="leaders">
+    <mat-list *ngIf="leaders" [@expand]>
          <mat-list-item *ngFor="let leader of leaders">
              <img mat-list-avatar src="{{BaseURL+leader.image}}" alt="{{leader.name}}">
             <h1 matLine>{{leader.name}} {{leader.abbr}}</h1>
